@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portofolio Olifia</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 18px;
+      background: #ffeaf4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffc0cb;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-left button,
+    .controls button,
+    #autoSlideBtn {
+      font-size: 16px;
+      background: white;
+      border: 2px solid pink;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 5px;
+      color: deeppink;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #languageSwitcher {
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    nav#sidebar {
+      background: #fff0f5;
+      padding: 10px;
+      position: absolute;
+      top: 60px;
+      left: 10px;
+      border: 1px solid pink;
+      border-radius: 10px;
+      box-shadow: 0 0 10px pink;
+      z-index: 99;
+    }
+
+    nav.hidden {
+      display: none;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      padding: 8px;
+      cursor: pointer;
+      border-bottom: 1px solid #ffc0cb;
+    }
+
+    nav ul li:hover {
+      color: hotpink;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .bio {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .bio img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid #ff69b4;
+    }
+
+    .social-links li {
+      margin: 10px 0;
+    }
+
+    .social-links a {
+      color: deeppink;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .diary {
+      background: #fffafc;
+      border-left: 5px solid pink;
+      padding: 15px;
+      border-radius: 10px;
+      font-style: italic;
+      box-shadow: 2px 2px 5px pink;
+      margin-bottom: 20px;
+    }
+
+    .diary-images {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .diary-images img {
+      width: 200px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(255, 192, 203, 0.7);
+    }
+
+    footer {
+      margin-top: 30px;
+      background: #ffe4ec;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid pink;
+    }
+
+    footer h3 {
+      margin-bottom: 10px;
+      color: deeppink;
+    }
+
+    @media screen and (max-width: 768px) {
+      .bio {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .diary-images img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-left">
+      <button id="menuBtn">📂 Klik di sini</button>
+    </div>
+    <div class="controls">
+      <button id="toggleMode">🌙 / ☀️</button>
+      <select id="languageSwitcher">
+        <option value="id">🇮🇩 Indonesia</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
+      <button id="autoSlideBtn">▶️ Auto Slide</button>
+    </div>
+  </header>
+
+  <nav id="sidebar" class="hidden">
+    <ul>
+      <li onclick="showPage(0)">📄 Biodata</li>
+      <li onclick="showPage(1)">🔗 Sosial Media</li>
+      <li onclick="showPage(2)">👧 Tentang Olifia</li>
+      <li onclick="showPage(3)">📔 Diary</li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="page active" id="page0">
+      <h1>Hai, Aku Olifia! 🌸</h1>
+      <div class="bio">
+        <img src="olifia.jpg" alt="Foto Olifia">
+        <ul>
+          <li>Nama: Olifia</li>
+          <li>Umur: 16 Tahun</li>
+          <li>Tempat, Tanggal Lahir: Balikpapan, 26 Oktober 2008</li>
+          <li>Hobi: Bermain Roblox</li>
+          <li>Sekolah: SMKN 3</li>
+          <li>Jurusan: TKJ</li>
+        </ul>
+      </div>
+      <p class="extra">Selamat datang di portofolioku yang lucu dan estetik ✨</p>
+    </section>
+
+    <section class="page" id="page1">
+      <h2>Temui Aku di Sosial Media</h2>
+      <ul class="social-links">
+        <li><a href="https://www.instagram.com/lilipooo08?igsh=MTFoYmc4a2kydzVpeA==" target="_blank">📸 Instagram</a></li>
+        <li><a href="https://wa.me/082344896131" target="_blank">💬 WhatsApp</a></li>
+        <li><a href="https://www.tiktok.com/@suprisebch?_t=ZS-8zzreV2MaUa&_r=1" target="_blank">🎵 TikTok</a></li>
+      </ul>
+    </section>
+
+    <section class="page" id="page2">
+      <h2>Tentang Olifia</h2>
+      <p>Saya sangat senang bermain Roblox karena saya bertemu dengan teman-teman baru. Tapi cita-cita saya adalah bekerja di perusahaan besar dan menikahi orang kaya 😅.</p>
+      <p>Mimpi saya adalah bisa bersekolah di sekolah kedinasan setelah lulus dari SMK Negeri 3. Saya senang berbaur dengan teman-teman baru dan saya orang yang sangat ceria 🌈</p>
+    </section>
+
+    <section class="page" id="page3">
+      <h2>📖 Diary Olifia</h2>
+      <div class="diary">
+        <p><strong>24 September 2025:</strong> Hari ini aku belajar membuat website dengan bantuan ChatGPT. Aku ingin webku cantik dan ceria, seperti aku. Semoga suatu hari nanti aku bisa jadi orang sukses dan membanggakan keluarga 💖</p>
+      </div>
+      <div class="diary-images">
+        <img src="foto.jpg" alt="Foto Diary 1">
+        <img src="ghibli.jpg" alt="Foto Diary 2">
+      </div>
+    </section>
+  </main>
+    <footer>
+  <h3>🎧 Lagu Favoritku</h3>
+  <iframe
+    style="border-radius:12px"
+    src="https://open.spotify.com/track/5mtTAScDytxMMqZj14NmlN?si=_wgK16A_SgGvrvl0jI51pw"
+    width="100%"
+    height="80"
+    frameborder="0"
+    allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    loading="lazy"
+  ></iframe>
+  <p style="margin-top: 15px; font-size: 14px; color: #b565a7;">
+    © 2025 Olifia. Semua hak cipta dilindungi.
+  </p>
+</footer>
